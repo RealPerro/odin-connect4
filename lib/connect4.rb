@@ -19,7 +19,6 @@ class Connect4
     (0...7).each do |col|
       (0...6).each do |row|
         if check_point?(@board, col, row)
-          puts "found truth at #{col}, #{row}"
           return true 
         end
       end
@@ -39,8 +38,18 @@ class Connect4
     return true if diag_lens.uniq.size == 1
     false
   end
-
-  #create game
-
-
 end
+
+#create game
+game = Connect4.new()
+turn = 1
+puts "new game"
+while !game.is_finished?() do
+  col_play = gets.chomp.to_i
+  game.play(col_play, turn)
+  system ('clear')
+  p game.board
+  turn = (turn == 1) ? 2 : 1
+end
+turn = (turn == 1) ? 2 : 1
+puts "game ended! Winner is: #{turn}"
