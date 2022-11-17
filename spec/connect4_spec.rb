@@ -27,6 +27,7 @@ describe Connect4 do
     xit 'p2 plays different' do
       expect {game.play(1,1); game.play(3,2)}.to change {game.board[3][0]}.to(2)
     end
+
   end
 
   #check if finished
